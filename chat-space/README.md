@@ -1,8 +1,8 @@
 ## accountsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|mail|integer|null: false, unique: true|
+|user_id|integer|null: false, foreign_key :true|
+|mail|integer|null: false, unique: true, foreign_key :true|
 |password|integer|null: false|
 
 ### Association
@@ -12,7 +12,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-|mail|string|null: false, unique: true|
+|mail|string|null: false, unique: true, foreign_key :true|
 
 ### Association
 - has_many :groups, through: members
@@ -25,8 +25,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|group_id|integer|null: false|
-|user_id|integer|null: false|
+|group_id|integer|null: false, foreign_key :true|
+|user_id|integer|null: false, foreign_key :true|
 
 ### Association
 - has_many :users, through: members
@@ -48,6 +48,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|message_id|integer|null: false|
 |body|text|null: false|
 |image|string|null: true|
 |user_id|integer|null: false, foreign_key: true|
