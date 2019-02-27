@@ -1,9 +1,9 @@
 ## accountsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key :true|
-|mail|integer|null: false, unique: true, foreign_key :true|
-|password|integer|null: false|
+|user_id|reference|null: false, foreign_key :true|
+|mail|reference|null: false, unique: true, foreign_key :true|
+|password|string|null: false|
 
 ### Association
 - has_one_attached :user
@@ -12,7 +12,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-|mail|string|null: false, unique: true, foreign_key :true|
+|mail|reference|null: false, unique: true, foreign_key :true|
 
 ### Association
 - has_many :groups, through: members
@@ -25,8 +25,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|group_id|integer|null: false, foreign_key :true|
-|user_id|integer|null: false, foreign_key :true|
+|group_id|reference|null: false, foreign_key :true|
+|user_id|reference|null: false, foreign_key :true|
 
 ### Association
 - has_many :users, through: members
@@ -50,9 +50,9 @@
 |------|----|-------|
 |message_id|integer|null: false|
 |body|text|null: false|
-|image|string|null: true|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|image|string|-------|
+|user_id|reference|null: false, foreign_key: true|
+|group_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
