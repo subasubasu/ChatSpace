@@ -1,0 +1,15 @@
+@import "./reset";
+@import "font-awesome";
+@import "_variable.scss";
+@import "_header.scss";
+@import "_chat-side.scss";
+@import "_chat-main.scss";
+@import "_form.scss";
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
