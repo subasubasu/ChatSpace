@@ -1,40 +1,42 @@
-!!!
-%html
-  %body
-    %header.header
-      - if true
-        / グループを作成しました。
-    .chat-side
-      .side-header
-        .side-header__box
-          %p.side-header__box__user-name
-            グループ名
-          %ul.side-header__box__menu
-            %li.side-header__box__menu__edit-user
-              %a{:href => " "}
-                %i.fa.fa-edit
-            %li.side-header__box__menu__new-group
-              %a{:href => " "}
-                %i.fa.fa-cog
-      .groups
-        = render partial: "group"
-    .chat-main
-      .main-header
-        .main-header__left-box
-          %h1.main-header__left-box__current-group
-            グループ名
-          %ul.main-header__left-box__member-list Member :
+%body
+  %header.header
+    - if true
+      / グループを作成しました。
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name
+          グループ名
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__edit-user
+            %a
+              = link_to ' ', ' '
+              %i.fa.fa-edit
+          %li.side-header__box__menu__new-group
+            %a
+              = link_to ' ', ' '
+              %i.fa.fa-cog
+    .groups
+      = render partial: "group"
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h1.main-header__left-box__current-group
+          グループ名
+        %ul.main-header__left-box__member-list
+          Member :
           %li.main-header__left-box__member-list__member
             ユーザー名
-        %a{:href => " "}
-          .main-header__edit-button Edit
-      .messages
-        = render partial: "message"
-      .form
-        %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "", :enctype => "multipart/form-data", :method => "post"}
-          .input-box
-            %input.input-box__text{:id => "", :name => "message_content", :placeholder => "type a message", :type => "text"}/
-            %label.input-box__image{:for => "upload-icon"}
-              %i.fa.fa-image
-              %input#upload-icon.input-box__image__file{:field => "image", :hidden => "", :type => "file"}/
-          %input.submit-button{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+      %a
+        = link_to ' ', ' '
+        .main-header__edit-button Edit
+    .messages
+      = render partial: "message"
+    .form
+      %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "", :enctype => "multipart/form-data", :method => "post"}
+        .input-box
+          %input.input-box__text{:id => "", :name => "message_content", :placeholder => "type a message", :type => "text"}/
+          %label.input-box__image{:for => "upload-icon"}
+            %i.fa.fa-image
+            %input#upload-icon.input-box__image__file{:field => "image", :hidden => "", :type => "file"}/
+        %input.submit-button{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
