@@ -35,12 +35,12 @@ a {
   overflow: scroll;
 }
 .group {
-  margin-bottom: 40px;
   &__group-name {
     font-size: 15px;
     margin-bottom: 5px;
   }
   &__group-latest-message {
     font-size: 11px;
+    margin-bottom: 40px
   }
 }

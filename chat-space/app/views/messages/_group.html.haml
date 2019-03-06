@@ -1,10 +1,8 @@
 %a
-  = link_to ' ', ' '
   .group
-    %p.group__group-name グループ１
-    %p.group__group-latest-message メッセージ1
-%a
-  = link_to ' ', ' '
-  .group
-    %p.group__group-name グループ２
-    %p.group__group-latest-message メッセージ2.1
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group) do
+        .group__group-name
+          = group.name
+        .group__group-latest-message
+          メッセージはまだありません。
