@@ -20,11 +20,11 @@
     .main-header
       .main-header__left-box
         %h1.main-header__left-box__current-group
-          グループ名
+          = @group.name
         %ul.main-header__left-box__member-list
           Member :
           %li.main-header__left-box__member-list__member
-            ユーザー名
+            = current_user.name
       %a
         = link_to edit_group_path(current_user) do
           .main-header__edit-button
