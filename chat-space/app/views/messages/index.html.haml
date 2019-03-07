@@ -31,19 +31,13 @@
             Edit
     .messages
       = render partial: 'message', collection: @messages
-      / .form
-      /   = form_for [@group, @message] do |f|
-      /   = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-      /   .form__mask
-      /     = f.label :image, class: 'form__mask__image' do
-      /       = fa_icon 'picture-o', class: 'icon'
-      /       = f.file_field :image, class: 'hidden'
-      /   = f.submit 'Send', class: 'form__submit'
     .form
-      %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "", :enctype => "multipart/form-data", :method => "post"}
-        .input-box
-          %input.input-box__text{:id => "", :name => "message_content", :placeholder => "type a message", :type => "text"}/
-          %label.input-box__image{:for => "upload-icon"}
-            %i.fa.fa-image
-            %input#upload-icon.input-box__image__file{:field => "image", :hidden => "", :type => "file"}/
-        %input.submit-button{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+      .input-box
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'input-box__submit-button'
+
+
