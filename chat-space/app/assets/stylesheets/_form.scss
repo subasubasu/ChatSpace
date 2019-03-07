@@ -11,31 +11,51 @@
 .input-box {
   float: left;
   position: relative;
-  width: calc(100% - 165px);
+  width: 100%;
   &__text {
   background-color: white;
   height: 50px;
-  width: 100%;
+  width: calc(100% - 165px);
   padding: 0 40px 0 10px;
   color: #434a54;
   border-style: none;
   }
   &__image {
+    width: 0;
+    height: 0;
     font-size: 1.3rem;
     position: absolute;
     top: 10px;
-    right: -40px;
+    right: 147px;
+    cursor: pointer;
+  }
+  &__submit-button {
+    // display: inline-block;
+    float: right;
+    width: 100px;
+    height: 50px;
+    padding: 0 30px;
+    margin-left: 15px;
+    background-color: #38aef0;
+    color: white;
     cursor: pointer;
   }
 }
 
-.submit-button {
-  float: right;
-  width: 100px;
-  height: 50px;
-  padding: 0 30px;
-  margin-left: 15px;
-  background-color: #38aef0;
-  color: white;
-  cursor: pointer;
+.hidden {
+  height: 0;
+  width: 0;
+  visibility: hidden;
 }
+
+
+// .submit-button {
+//   float: right;
+//   width: 100px;
+//   height: 50px;
+//   padding: 0 30px;
+//   margin-left: 15px;
+//   background-color: #38aef0;
+//   color: white;
+//   cursor: pointer;
+// }
