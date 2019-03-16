@@ -1,6 +1,5 @@
 $(function(){
   function buildHTML(message){
-    var image = ""
     message.image ? image = `<img src="${message.image}">` : image = ""
     var html = `<div class="message">
                   <div class="message__upper-info">
@@ -26,18 +25,17 @@ $(function(){
       processData: false
     })
     .done(function(data){
-       console.log('do')
        var html = buildHTML(data);
       $('.messages').append(html)
-      $('.input-box__text').val('');
-      $('.input-box__image').val('');
+      $('.input-box__text').reset();
+      $('.input-box__image').reset();
       $('.input-box__submit-button').attr('disabled', false);
       $('.messages').animate({scrollTop: 10000});
     })
      .fail(function(){
       alert('error');
-      $('.input-box__text').val('');
-      $('.input-box__image').val('');
+      $('.input-box__text').reset();
+      $('.input-box__image').reset();
       $('.input-box__submit-button').attr('disabled', false);
     })
   })
