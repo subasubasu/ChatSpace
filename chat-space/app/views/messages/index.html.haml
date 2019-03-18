@@ -26,7 +26,7 @@
           %li.main-header__left-box__member-list__member
             = current_user.name
       %a
-        = link_to edit_group_path(current_user) do
+        = link_to edit_group_path(@group) do
           .main-header__edit-button
             Edit
     .messages

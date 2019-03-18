@@ -3,6 +3,14 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def index
+    @users = User.where('name LIKE(?)', "%#{userindex_params[:user]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def update
     if current_user.update(user_params)
       redirect_to root_path
@@ -15,5 +23,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email)
+  end
+
+  def userindex_params
+    params.permit(:user)
   end
 end
