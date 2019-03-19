@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function(){
 $(function(){
   function buildHTML(message){
     message.image ? image = `<img src="${message.image}">` : image = ""
@@ -44,8 +45,8 @@ $(function(){
     .done(function(data){
        var html = buildHTML(data);
       $('.messages').append(html)
-      $('.input-box__text').reset();
-      $('.input-box__image').reset();
+      $('.input-box__text').val('');
+      $('.input-box__image').val('');
       $('.input-box__submit-button').attr('disabled', false);
       $('.messages').animate({scrollTop: 10000});
     })
@@ -85,6 +86,6 @@ $(function(){
         alert('error');
       })
     }
-  })
-})
-
+  });
+});
+});
